@@ -1,5 +1,21 @@
-$primary: #EDEA36;
-$body-bg: #5B5B5B;
+$theme-colors: (
+  "primary": #EDEA36,
+  "secondary": #ffffff,
+  "success": #28a745,
+  "info": #17a2b8,
+  "warning": #ffc107,
+  "danger": #dc3545,
+  "light": #f8f9fa,
+  "dark": #5B5B5B
+);
+
+$body-bg-dark: #5B5B5B;
+$headings-color: map-get($theme-colors, "primary");
+
+$card-title-color: map-get($theme-colors, "secondary");
+$card-subtitle-color: map-get($theme-colors, "secondary");
+$card-bg: #4a4a4a;
+
 $font-family-sans-serif: 'Roboto', sans-serif;
 
 $headings-font-family: 'Roboto', sans-serif;
@@ -11,7 +27,7 @@ $display-font-sizes: (
   5: 2.5rem,
   6: 2.0rem
 );
-$headings-color: #EDEA36;
+
 $display-font-weight: 700;
 
 $btn-border-width: 2px;
@@ -19,3 +35,7 @@ $btn-border-radius-sm: 5rem;
 $btn-border-radius-lg: 5rem;
 
 @import "bootstrap/scss/bootstrap";
+
+.my-text {
+  color: var(--bs-light);
+}
