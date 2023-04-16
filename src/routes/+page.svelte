@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 
-	import Auth from '../libs/Auth.svelte';
+	import Auth from '../libs/components/Auth.svelte';
 
 	let showAuth = false;
 </script>

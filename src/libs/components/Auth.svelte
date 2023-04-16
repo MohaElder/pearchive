@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { SignIn, initGoogleDependencies } from './googleDrive/Auth';
+	import { SignIn, initGoogleDependencies } from '../googleDrive/Auth';
 
 	export let handleOnClose: () => void;
 
