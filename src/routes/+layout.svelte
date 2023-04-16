@@ -1,8 +1,8 @@
 <script>
-	import '../scss/style.scss'
+	import '../scss/style.scss';
 </script>
 
-<body>
+<body data-bs-theme="dark">
 	<div class="container">
 		<slot />
 	</div>
