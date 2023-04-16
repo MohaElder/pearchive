@@ -1,22 +1,30 @@
 <script lang="ts">
 	import type { PearFile } from '../infrastructure/PearFile';
+	import type { PearFolder } from '../infrastructure/PearFolder';
+
 	import { copyFile } from '../../libs/store/FileStructure';
 
 	export let visible = false;
 	export let posX = 0;
 	export let posY = 0;
 
-	export let file: PearFile | null;
+	export let file: PearFile | PearFolder | null;
 </script>
 
 {#if visible}
 	<div class="list-group my-list-group" style={`left: ${posX}px; top: ${posY}px;`}>
-		<a href="#" class="list-group-item list-group-item-action" aria-current="true"> Open </a>
-		<a href="#" class="list-group-item list-group-item-action">Rename</a>
-		<a href="#" class="list-group-item list-group-item-action" on:click={() => {copyFile.copy(file)}}>Copy</a>
-		<a href="#" class="list-group-item list-group-item-action">Cut</a>
-		<a href="#" class="list-group-item list-group-item-action">Delete</a>
-		<a href="#" class="list-group-item list-group-item-action">Properties</a>
+		<a href="#" class="list-group-item list-group-item-action" aria-current="true"><i class="bi bi-door-open" />&nbsp;&nbsp; Open </a>
+		<a href="#" class="list-group-item list-group-item-action"><i class="bi bi-pencil" />&nbsp;&nbsp; Rename</a>
+		<a
+			href="#"
+			class="list-group-item list-group-item-action"
+			on:click={() => {
+				copyFile.copy(file);
+			}}><i class="bi bi-layers-fill" />&nbsp;&nbsp; Copy</a
+		>
+		<a href="#" class="list-group-item list-group-item-action"><i class="bi bi-scissors" />&nbsp;&nbsp; Cut</a>
+		<a href="#" class="list-group-item list-group-item-action"><i class="bi bi-trash" />&nbsp;&nbsp; Delete</a>
+		<a href="#" class="list-group-item list-group-item-action"><i class="bi bi-info-square" />&nbsp;&nbsp; Properties</a>
 	</div>
 {/if}
 
