@@ -19,6 +19,16 @@ export class PearFile {
         this.icon = icon;
         this.selected = selcted;
     }
+
+    rename(name: string): void {
+        this.name = name;
+        //do file rename logic
+    }
+
+    delete(): void {
+    
+    }
+    
 }
 
 export enum MediaType {
