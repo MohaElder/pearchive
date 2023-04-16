@@ -4,9 +4,10 @@ specifiers:
   '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/kit': ^1.5.0
   '@types/dompurify': ^3.0.1
+  '@types/uuid': ^9.0.1
   '@typescript-eslint/eslint-plugin': ^5.45.0
   '@typescript-eslint/parser': ^5.45.0
-  bootstrap: 5.2.3
+  bootstrap: 5.3.0-alpha3
   bootstrap-icons: ^1.10.4
   dompurify: ^3.0.1
   dotenv: ^16.0.3
@@ -21,18 +22,23 @@ specifiers:
   trusted-types: ^2.0.0
   tslib: ^2.4.1
   typescript: ^4.9.3
+  typescript-collections: ^1.3.3
+  uuid: ^9.0.0
   vite: ^4.0.0
 
 dependencies:
-  bootstrap: 5.2.3
+  bootstrap: 5.3.0-alpha3
   bootstrap-icons: 1.10.4
   dompurify: 3.0.1
   trusted-types: 2.0.0
+  typescript-collections: 1.3.3
+  uuid: 9.0.0
 
 devDependencies:
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.7.2
   '@sveltejs/kit': 1.7.2_svelte@3.55.1+vite@4.1.2
   '@types/dompurify': 3.0.1
+  '@types/uuid': 9.0.1
   '@typescript-eslint/eslint-plugin': 5.52.0_6cfvjsbua5ptj65675bqcn6oza
   '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
   dotenv: 16.0.3
@@ -431,6 +437,10 @@ packages:
     resolution: {integrity: sha512-NfQ4gyz38SL8sDNrSixxU2Os1a5xcdFxipAFxYEuLUlvU2uDwS4NUpsImcf1//SlWItCVMMLiylsxbmNMToV/g==}
     dev: true
 
+  /@types/uuid/9.0.1:
+    resolution: {integrity: sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA==}
+    dev: true
+
   /@typescript-eslint/eslint-plugin/5.52.0_6cfvjsbua5ptj65675bqcn6oza:
     resolution: {integrity: sha512-lHazYdvYVsBokwCdKOppvYJKaJ4S41CgKBcPvyd0xjZNbvQdhn/pnJlGtQksQ/NhInzdaeaSarlBjDXHuclEbg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -626,10 +636,10 @@ packages:
     resolution: {integrity: sha512-eI3HyIUmpGKRiRv15FCZccV+2sreGE2NnmH8mtxV/nPOzQVu0sPEj8HhF1MwjJ31IhjF0rgMvtYOX5VqIzcb/A==}
     dev: false
 
-  /bootstrap/5.2.3:
-    resolution: {integrity: sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ==}
+  /bootstrap/5.3.0-alpha3:
+    resolution: {integrity: sha512-FBhOWMxkCFr74hesJdchLXhqagPTXS+kRNU3gE0FR5Ki/AdPSz32Ik96Z28+yBluCnE/pc9st7l1yPwKgbtfSA==}
     peerDependencies:
-      '@popperjs/core': ^2.11.6
+      '@popperjs/core': ^2.11.7
     dev: false
 
   /brace-expansion/1.1.11:
@@ -1759,6 +1769,10 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /typescript-collections/1.3.3:
+    resolution: {integrity: sha512-7sI4e/bZijOzyURng88oOFZCISQPTHozfE2sUu5AviFYk5QV7fYGb6YiDl+vKjF/pICA354JImBImL9XJWUvdQ==}
+    dev: false
+
   /typescript/4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
@@ -1777,6 +1791,11 @@ packages:
     dependencies:
       punycode: 2.3.0
     dev: true
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
 
   /vite/4.1.2_sass@1.60.0:
     resolution: {integrity: sha512-MWDb9Rfy3DI8omDQySbMK93nQqStwbsQWejXRY2EBzEWKmLAXWb1mkI9Yw2IJrc+oCvPCI1Os5xSSIBYY6DEAw==}
