@@ -4,6 +4,9 @@
 	import { MediaType, PearFile } from '../../libs/infrastructure/PearFile';
 	import { copyFile } from '../../libs/store/FileStructure';
 	import RightClickMenu from '../../libs/components/RightClickMenu.svelte';
+	import Folder from '../../libs/components/Folder.svelte';
+	import { PearFolder } from '../../libs/infrastructure/PearFolder';
+	import Modal from '../../libs/components/Modal.svelte';
 
 	let copyingFile: PearFile | null;
 
@@ -12,22 +15,53 @@
 	let contextMenuY = 0;
 	let selectedFile: PearFile | null = null;
 
+	let showModal = false;
+
 	const handleShowContextMenu = (e, file) => {
 		e.preventDefault();
 		contextMenuX = e.clientX;
 		contextMenuY = e.clientY;
 		selectedFile = file;
 		showContextMenu = true;
-	}
+	};
 
 	const handleHideContextMenu = () => {
 		showContextMenu = false;
-	}
+	};
 
 	onMount(() => {
-		copyFile.subscribe(value => copyingFile = value);
+		copyFile.subscribe((value) => (copyingFile = value));
 	});
 </script>
+
+<button
+	on:click={() => {
+		showModal = !showModal;
+	}}>toggle modal</button
+>
+<Modal
+	visible={showModal}
+	options={{ title: 'aaaa', body: 'bbbbbbbbbb' }}
+	handleSubmit={() => {
+		console.log('submitted');
+		showModal = false;
+	}}
+	handleCancel={() => {
+		showModal = false;
+	}}
+>
+	<label for="inputPassword5" class="form-label">Password</label>
+	<input
+		type="password"
+		id="inputPassword5"
+		class="form-control"
+		aria-labelledby="passwordHelpBlock"
+	/>
+	<div id="passwordHelpBlock" class="form-text">
+		Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+		spaces, special characters, or emoji.
+	</div>
+</Modal>
 
 <div class="file-container">
 	<h3>Collections</h3>
@@ -44,11 +78,33 @@
 				'bi bi-file-earmark'
 			)}
 		/>
+		<Folder
+			handleContextMenu={handleShowContextMenu}
+			handleFileUnSelected={handleHideContextMenu}
+			folder={new PearFolder(
+				'Test Folder',
+				'This is a test folder',
+				'bi bi-archive-fill',
+				[],
+				(x, y) => {
+					return x.name.length - y.name.length;
+				}
+			)}
+		/>
 	</div>
 
-	<RightClickMenu visible={showContextMenu} posX={contextMenuX} posY={contextMenuY} file={selectedFile} />
+	<RightClickMenu
+		visible={showContextMenu}
+		posX={contextMenuX}
+		posY={contextMenuY}
+		file={selectedFile}
+	/>
 
-	<button on:click={() => {console.log(copyingFile)}}>Paste</button>
+	<button
+		on:click={() => {
+			console.log(copyingFile);
+		}}>Paste</button
+	>
 </div>
 
 <style scoped>
@@ -56,7 +112,7 @@
 		padding: 12% 15% 15% 5%;
 	}
 
-    .files{
-        margin-top: 2%;
-    }
+	.files {
+		margin-top: 2%;
+	}
 </style>
