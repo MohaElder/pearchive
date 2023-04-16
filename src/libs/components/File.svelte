@@ -3,6 +3,8 @@
 	import type { PearFile } from '../infrastructure/PearFile';
 
 	export let file: PearFile;
+	export let handleContextMenu: (e, file: PearFile) => any;
+	export let handleFileUnSelected: () => any;
 
 	let clickEffectClass = '';
 
@@ -26,6 +28,7 @@
 		const cardElement = document.querySelector('.my-card') as HTMLElement;
 		if (!cardElement.contains(target)) {
 			file.selected = false;
+			handleFileUnSelected();
 		}
 	};
 
@@ -39,6 +42,7 @@
 	class={'card my-card ' + clickEffectClass}
 	on:click={handleClick}
 	on:dblclick={handleDoubleClick}
+	on:contextmenu={(e) => {handleContextMenu(e, file)}}
 >
 	<i class={file.icon} />
 </button>
