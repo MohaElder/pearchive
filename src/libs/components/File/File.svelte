@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { PearFile } from '../infrastructure/PearFile';
+	import type { PearFile } from '../../infrastructure/PearFile';
 
 	export let file: PearFile;
 	export let handleContextMenu: (e, file: PearFile) => any;
