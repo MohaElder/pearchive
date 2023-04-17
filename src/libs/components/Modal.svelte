@@ -6,10 +6,10 @@
 		title: string;
 		body: string;
 		submitText: string;
-        cancelText: string;
+		cancelText: string;
 	};
 	export let handleSubmit: () => any;
-    export let handleCancel: () => any;
+	export let handleCancel: () => any;
 </script>
 
 {#if visible}
@@ -21,20 +21,34 @@
 					<p class="my-text">{options.body}</p>
 				{/if}
 				<slot />
-				<button class="btn btn-primary my-submit-button" on:click={handleSubmit}
-					>{options.submitText ?? 'Save'}</button
-				>
-				<button class="btn btn-secondary my-submit-button" style="margin-left: 10px;" on:click={handleCancel}
-					>{options.cancelText ?? 'Cancel'}</button
-				>
+				<div class="my-submit-buttons">
+					<button class="btn btn-primary my-submit-button" on:click={handleSubmit}
+						>{options.submitText ?? 'Save'}</button
+					>
+					<button class="btn btn-secondary my-submit-button" on:click={handleCancel}
+						>{options.cancelText ?? 'Cancel'}</button
+					>
+				</div>
 			</div>
 		</div>
 	</div>
 {/if}
 
 <style scoped>
-	.my-submit-button {
-		margin-top: 2%;
+	.my-submit-buttons {
+		position: absolute;
+		display: flex;
+		justify-content: flex-start; /* Align children from the left */
+		bottom: 5%;
+		gap: 10px; /* Add 10px gap between each child element */
+	}
+
+	@media only screen and (max-width: 600px) {
+		.my-submit-buttons {
+			flex-wrap: wrap;
+			justify-content: center;
+			bottom: 10px;
+		}
 	}
 
 	.overlay {
@@ -52,6 +66,20 @@
 	}
 
 	.my-card {
-		margin-top: -25%;
+		margin-top: -15%;
+		display: inline-block;
+		width: 50%;
+		height: 15vh;
+		padding: 0% 0% 2% 0%;
+		font-size: 1.2em;
+	}
+
+	@media only screen and (max-width: 1000px) {
+		.my-card {
+			margin-top: -10%;
+			width: 80%;
+			height: 50vh;
+			font-size: 1em;
+		}
 	}
 </style>

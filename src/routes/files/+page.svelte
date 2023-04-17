@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import File from '../../libs/components/File.svelte';
+	import File from '../../libs/components/File/File.svelte';
 	import { MediaType, PearFile } from '../../libs/infrastructure/PearFile';
 	import { copyFile } from '../../libs/store/FileStructure';
 	import RightClickMenu from '../../libs/components/RightClickMenu.svelte';
@@ -39,29 +39,6 @@
 		showModal = !showModal;
 	}}>toggle modal</button
 >
-<Modal
-	visible={showModal}
-	options={{ title: 'aaaa', body: 'bbbbbbbbbb' }}
-	handleSubmit={() => {
-		console.log('submitted');
-		showModal = false;
-	}}
-	handleCancel={() => {
-		showModal = false;
-	}}
->
-	<label for="inputPassword5" class="form-label">Password</label>
-	<input
-		type="password"
-		id="inputPassword5"
-		class="form-control"
-		aria-labelledby="passwordHelpBlock"
-	/>
-	<div id="passwordHelpBlock" class="form-text">
-		Your password must be 8-20 characters long, contain letters and numbers, and must not contain
-		spaces, special characters, or emoji.
-	</div>
-</Modal>
 
 <div class="file-container">
 	<h3>Collections</h3>
