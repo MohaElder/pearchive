@@ -21,4 +21,13 @@ export class PearFolder {
         this.files = new PriorityQueue(priorityFunction);
         files.forEach(file => this.files.add(file));
     }
+
+    rename(name: string): void {
+        this.name = name;
+        //do file rename logic
+    }
+
+    delete(): void {
+    
+    }
 }
