@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { PearFile } from '../infrastructure/PearFile';
-	import type { PearFolder } from '../infrastructure/PearFolder';
+	import type { PearFile } from '../../infrastructure/PearFile';
+	import type { PearFolder } from '../../infrastructure/PearFolder';
 
-	import { copyFile } from '../../libs/store/FileStructure';
-	import Rename from './File/Actions/Rename.svelte';
+	import { copyFile } from '../../store/FileStructure';
+	import Rename from '../File/Actions/Rename.svelte';
 
 	export let visible = false;
 	export let posX = 0;
@@ -19,19 +19,17 @@
 		<a href="#" class="list-group-item list-group-item-action" aria-current="true"
 			><i class="bi bi-door-open" />&nbsp;&nbsp; Open
 		</a>
-		<a
-			href="#"
+		<button
 			class="list-group-item list-group-item-action"
 			on:click={() => {
 				renamingFile = true;
-			}}><i class="bi bi-pencil" />&nbsp;&nbsp; Rename</a
+			}}><i class="bi bi-pencil" />&nbsp;&nbsp; Rename</button
 		>
-		<a
-			href="#"
+		<button
 			class="list-group-item list-group-item-action"
 			on:click={() => {
 				copyFile.copy(file);
-			}}><i class="bi bi-layers-fill" />&nbsp;&nbsp; Copy</a
+			}}><i class="bi bi-layers-fill" />&nbsp;&nbsp; Copy</button
 		>
 		<a href="#" class="list-group-item list-group-item-action"
 			><i class="bi bi-scissors" />&nbsp;&nbsp; Cut</a
@@ -45,7 +43,16 @@
 	</div>
 {/if}
 
-<Rename visible={renamingFile} {file} handleSubmit={()=>{renamingFile=false;}} handleCancel={()=>{renamingFile=false;}} />
+<Rename
+	visible={renamingFile}
+	{file}
+	handleSubmit={() => {
+		renamingFile = false;
+	}}
+	handleCancel={() => {
+		renamingFile = false;
+	}}
+/>
 
 <style scoped>
 	.my-list-group {

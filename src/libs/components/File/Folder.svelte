@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { PearFolder } from '../infrastructure/PearFolder';
+	import type { PearFolder } from '../../infrastructure/PearFolder';
 
 	export let folder: PearFolder;
 	export let handleContextMenu: (e, file: PearFolder) => any;
