@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { SignIn, initGoogleDependencies } from '../googleDrive/Auth';
 
-	export let handleOnClose: () => void;
+	export let handleOnClose: (param: any) => void;
 
 	onMount(() => {
 		initGoogleDependencies();
@@ -14,8 +14,7 @@
 			icon: 'bi-google',
 			auth: () => {
 				SignIn().then(res => {
-					console.log(res);
-					handleOnClose();
+					handleOnClose(res);
 				});
 			}
 		},

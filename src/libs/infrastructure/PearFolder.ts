@@ -13,8 +13,8 @@ export class PearFolder {
     selected: boolean;
     pqFunction: (x: PearFile | PearFolder, y: PearFile | PearFolder) => number;
 
-    constructor(name: string, description: string, icon: string, files: Array<PearFile | PearFolder>, priorityFunction: (x: PearFile | PearFolder, y: PearFile | PearFolder) => number) {
-        this.id = uuidv4();
+    constructor(name: string, description: string, icon: string, files: Array<PearFile | PearFolder>, priorityFunction: (x: PearFile | PearFolder, y: PearFile | PearFolder) => number, id: string | null = null) {
+        this.id = id == null ? uuidv4() : id;
         this.name = name;
         this.description = description;
         this.icon = icon;

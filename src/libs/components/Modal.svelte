@@ -20,7 +20,7 @@
 				{#if options.body}
 					<p class="my-text">{options.body}</p>
 				{/if}
-				<slot />
+				<slot class="slot" />
 				<div class="my-submit-buttons">
 					<button class="btn btn-primary my-submit-button" on:click={handleSubmit}
 						>{options.submitText ?? 'Save'}</button
@@ -35,6 +35,9 @@
 {/if}
 
 <style scoped>
+	.slot {
+		padding: 20px;
+	}
 	.my-submit-buttons {
 		position: absolute;
 		display: flex;
@@ -69,7 +72,7 @@
 		margin-top: -15%;
 		display: inline-block;
 		width: 50%;
-		height: 15vh;
+		height: 25vh;
 		padding: 0% 0% 2% 0%;
 		font-size: 1.2em;
 	}

@@ -35,7 +35,7 @@
 				selectedFile = file;
 				showLayoutContextMenu = true;
 			}
-		}, 40);
+		}, 50);
 	};
 
 	const handleHideFileContextMenu = () => {
@@ -110,7 +110,7 @@
 
 <style scoped>
 	.file-container {
-		padding: 12% 15% 15% 5%;
+		padding: 0% 15% 0% 0%;
 	}
 
 	.files {

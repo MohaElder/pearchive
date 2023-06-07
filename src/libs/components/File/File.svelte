@@ -20,7 +20,7 @@
 			}, 400);
 		}
 
-		//FileStructure.openFile(file);
+		window.location.href = '/file?id=' + file.id;
 	};
 
 	const handleOutsideClick = (event: MouseEvent) => {
@@ -43,7 +43,9 @@
 	class={'card my-card ' + clickEffectClass}
 	on:click={handleClick}
 	on:dblclick={handleDoubleClick}
-	on:contextmenu={(e) => {handleContextMenu(e, file)}}
+	on:contextmenu={(e) => {
+		handleContextMenu(e, file);
+	}}
 >
 	<i class={file.icon} />
 </button>

@@ -12,4 +12,16 @@ function CopyFile() {
     }
 }
 
+function FileStructure() {
+    const { subscribe, set } = writable<PearFolder | null>(null);
+
+    return {
+        subscribe,
+        set: (newFile: PearFolder | null) => { set(newFile) },
+        reset: () => set(null)
+    }
+}
+
 export const copyFile = CopyFile();
+
+export const fileStructure = FileStructure();

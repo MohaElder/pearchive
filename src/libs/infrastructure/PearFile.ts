@@ -13,8 +13,8 @@ export class PearFile {
     icon: string;
     selected: boolean;
 
-    constructor(media: { src: string, type: MediaType }, name: string, receipient: string, sender: string, description: string, icon: string, selcted: boolean = false) {
-        this.id = uuidv4();
+    constructor(media: { src: string, type: MediaType }, name: string, receipient: string, sender: string, description: string, icon: string, selcted: boolean = false, id: string | null = null) {
+        this.id = id == null ? uuidv4() : id;
         this.media = media;
         this.name = name;
         this.receipient = receipient;

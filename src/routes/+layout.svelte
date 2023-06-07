@@ -4,12 +4,17 @@
 
 <body data-bs-theme="dark">
 	<div class="container">
+		<h1 class="title">Pearchive</h1>
 		<slot />
 	</div>
 </body>
 
-<style scoped>
+<style>
+	.title {
+		margin-bottom: 50px;
+	}
+
 	.container {
-		padding: 2%;
+		padding: 3%;
 	}
 </style>
